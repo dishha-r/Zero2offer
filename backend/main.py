@@ -56,6 +56,10 @@ async def get_current_user(
     except Exception:
         raise HTTPException(status_code=401, detail="Invalid or expired token")
 
+@app.get("/")
+async def root():
+    return {"status": "ok", "service": "Zero2Offer API"}
+    
 
 @app.post("/auth/register")
 async def register(req: Credentials):
